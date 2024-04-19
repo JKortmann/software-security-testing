@@ -1,0 +1,14 @@
+services:
+  jupyter:
+    build: 
+      context: .
+      dockerfile: ./docker/jupyter/Dockerfile
+    container_name: jupyter_notebook
+    ports:
+      - 8888:8888
+    volumes:
+      - ./work:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=token
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
